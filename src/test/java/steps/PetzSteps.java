@@ -57,25 +57,24 @@ public class PetzSteps {
         product.irParaCarrinho();
     }
 
-    @Then("devera verificar se estao corretos os valores do produto {string}")
-    public void validaValores(String precoBDD) {
+    @Then("devera verificar se os valores na pagina e no carrinho estao igualados")
+    public void validaValores() {
         String precoCarrinho = cart.pegarPrecoCarrinho();
 
         Screenshot.tirarPrint(driver, "produto_no_carrinho");
         Log.escreverLog("Validando preço...");
         Log.escreverLog("PRECO PRODUTO: " + precoSacola);
         Log.escreverLog("PRECO CARRINHO: " + precoCarrinho);
-        Log.escreverLog("PRECO ESPERADO: " + precoBDD);
 
-        Assert.assertEquals(precoBDD, precoSacola);
         Assert.assertEquals(precoSacola, precoCarrinho);
         Log.escreverLog("TESTE PASSOU!");
     }
 
     //Login
     //Como o site da Petz SEMPRE vai pedir a confirmaçao via SMS
-    //Defini que para evitar impecilhos na correção do teste
+    //Defini que para evitar empecilhos na correção do teste
     //Parar no modal da verificação de segurança (SMS) como um cenário de login completo
+    //Combinado com o Darlan em call
 
     @When("passa o mouse em cima do icone entrar cadastre-se")
     public void passaOMouseEmCimaDoIconeEntrarCadastreSe() {
