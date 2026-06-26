@@ -13,6 +13,9 @@ public class DriverManager {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
 
+            //para forçar comportamento igual em todos os computadores
+            options.addArguments("--incognito");
+
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
         }

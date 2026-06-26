@@ -30,8 +30,4 @@ public class ProductPage extends ProductAttributes{
         botao.click();
     }
 
-    public void aceitarCookies() {
-
-        driver.findElement(ProductAttributes.CookieButton).click();
-    }
 }

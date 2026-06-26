@@ -10,6 +10,8 @@ public class HomeAttributes {
 
     protected  static final By LoginMouseOver = By.cssSelector(".ptz-header-profile");
 
+    protected static final By CookieButton = By.id("onetrust-accept-btn-handler");
+
     //protected static final By HeaderOla = By.xpath("//span[contains(@class,'ptz-header-profile-button-content-logged') and contains(text(),'Olá,')]");
 
 }

@@ -26,6 +26,8 @@ public class PetzSteps {
     public void entraSite(String url) throws InterruptedException  {
         Log.escreverLog("Iniciando teste...");
         home.acessarSite(url);
+        home.aceitarCookies();
+
         //Adicionei o sleep para poder tirar o print do site carregado
         Thread.sleep(5000);
         Screenshot.tirarPrint(driver, "inicio_teste");
@@ -42,7 +44,6 @@ public class PetzSteps {
     @When("na pagina do produto inclui o produto no carrinho")
     public void adicionaCarrinho() {
         precoSacola = product.pegarPreco();
-        product.aceitarCookies();
         product.adicionarAoCarrinho();
         Log.escreverLog("Adicionando produto no carrinho...");
     }

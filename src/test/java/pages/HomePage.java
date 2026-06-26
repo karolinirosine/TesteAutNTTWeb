@@ -35,6 +35,11 @@ public class HomePage extends HomeAttributes {
         btnLogin.click();
     }
 
+    public void aceitarCookies() {
+        WebElement cookies = wait.until(ExpectedConditions.presenceOfElementLocated(HomeAttributes.CookieButton));
+        cookies.click();
+    }
+
     //public boolean validarLogin(){
     //    return driver.findElement(HomeAttributes.HeaderOla).isDisplayed();
     //}
