@@ -2,6 +2,7 @@ package pages;
 
 import attributes.HomeAttributes;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -36,8 +37,14 @@ public class HomePage extends HomeAttributes {
     }
 
     public void aceitarCookies() {
-        WebElement cookies = wait.until(ExpectedConditions.presenceOfElementLocated(HomeAttributes.CookieButton));
-        cookies.click();
+        //try/catch pois os cookies podem aparecer tanto na página inicial quanto na página de produto
+        //não há padronização
+        try {
+            WebElement cookies = wait.until(ExpectedConditions.presenceOfElementLocated(HomeAttributes.CookieButton));
+            cookies.click();
+        } catch (TimeoutException t){
+        }
+
     }
 
     //public boolean validarLogin(){
