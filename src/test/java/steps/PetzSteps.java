@@ -43,6 +43,7 @@ public class PetzSteps {
 
     @When("na pagina do produto inclui o produto no carrinho")
     public void adicionaCarrinho() {
+        product.fecharModalSale();
         precoSacola = product.pegarPreco();
         home.aceitarCookies();
         product.adicionarAoCarrinho();

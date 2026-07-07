@@ -1,6 +1,7 @@
 package pages;
 
 import attributes.ProductAttributes;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +13,7 @@ import java.time.Duration;
 public class ProductPage extends ProductAttributes{
 
     WebDriver driver = DriverManager.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     public String pegarPreco() {
 
@@ -28,6 +29,15 @@ public class ProductPage extends ProductAttributes{
     public void irParaCarrinho() {
         WebElement botao = wait.until(ExpectedConditions.elementToBeClickable(ProductAttributes.ModalCheckoutButton));
         botao.click();
+    }
+
+    public void fecharModalSale() {
+        try {
+            WebElement botao = wait.until(ExpectedConditions.elementToBeClickable(ProductAttributes.ModalSale));
+            botao.click();
+        } catch (TimeoutException t) {
+
+        }
     }
 
 }
